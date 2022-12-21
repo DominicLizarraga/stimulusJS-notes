@@ -82,7 +82,7 @@ Add `data-controller="hello"` to the `<div>` form.
 
 Next up we need to make sure the controller is working and we can use the next method in order to display something in the console and the current `element`.
 
-Don't forget to reaload 🔁. (`connect()` is mostly used to make sure the connection is ready)
+Don't forget to reaload 🔁. (`connect()` is mostly used to make sure the connection is ready also keep in mind that `controllers` give behavior to you HTML element) 
 
 ```bash
 // src/controllers/hello_controller.js
@@ -191,3 +191,22 @@ export default class extends Controller {
 
 
 Some text was taken from the [Oficial Site.](https://stimulus.hotwired.dev/)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
