@@ -27,7 +27,7 @@ export default class extends Controller {
         e.preventDefault();
         const name = this.nameTarget.value;
         this.titleName = name
-        this.readName(this.readName)
+        this.readName(this.titleName)
     }
 
     readName(name) {
