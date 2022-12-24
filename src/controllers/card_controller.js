@@ -1,37 +1,41 @@
-import { Controller }  from 'stimulus';
+import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-    static targets = ["name"];
+  static targets = ["input", "output"]
 
-    initialize() {
-        const name = document.querySelector(".card-title").getAttribute("data-name");
+  initialize() {
+    const name = document.querySelector(".card-title").getAttribute("data-name");
+    const name2 = document.querySelector(".card-title").textContent
+    if (name2 === "") {
+      this.readName(name)
+    } else {
+      this.readName(this.titleName)
+      }
+  }
 
-        if(this.titleName === null) {
-            this.readName(name);
-        } else {
-            this.readName(this.titleName);
-        }
-    }
-  
-    get titleName() {
-      return this.data.get("name")
-    }
-  
-    set(value) {
-      this.data.set("name", value)
-    }
-  
-  
+  get titleName() {
+    return this.data.get('input');
+  }
 
-    greet(e) {
-        e.preventDefault();
-        const name = this.nameTarget.value;
-        this.titleName = name
-        this.readName(this.titleName)
-    }
+  
+  set titleName(value) {
+    this.data.set('input', value)
+  }
 
-    readName(name) {
-        const cardName = document.querySelector(".card-title");
-        cardName.textContent = name;
-    }
+
+
+  greet(e) {
+    e.preventDefault();
+    const name = this.inputTarget.value;
+    this.titleName = name;
+    this.readName(this.titleName);
+    // console.log(`${this.inputTarget.value}`)
+  }
+  
+  readName(name) {
+    const cardName = document.querySelector(".card-title");
+    cardName.textContent = name;
+  }
+  
+  
 }
